@@ -12,10 +12,10 @@ export default function Home() {
     if (loading) return <p>Loading...</p>;
     if (error) {
       console.log("ERROR:", error);
-      return <p>Error :(</p>;
+      return <p>There was an error fetching articles, please try again.</p>;
     }
-    console.log("DATA", data)
-    return data.posts.nodes.map(({ id, title, date }) => (
+
+    return data.posts.nodes.map(({ id, title, date }: {id:number, title:string, date:string}) => (
       <div key={id}>
         <p>
            <a href="#">{date} - <strong>{title}</strong></a>
