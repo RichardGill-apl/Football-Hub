@@ -1,18 +1,7 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  useQuery,
-  gql
-} from "@apollo/client";
-
-const client = new ApolloClient({
-  uri: 'http://dev.footballapl.com/graphql',
-  cache: new InMemoryCache()
-});
+import { ApolloProvider } from "@apollo/client"
+import { client } from '../lib/graphql'
 
 function FootballHubApp({ Component, pageProps }: AppProps) {
 

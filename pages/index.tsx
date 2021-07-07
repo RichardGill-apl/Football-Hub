@@ -1,41 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-
-import { gql, useQuery } from "@apollo/client";
+import { PostList } from '../lib/posts'
 
 export default function Home() {
 
-  function PostList() {
-    const { loading, error, data } = useQuery(GET_POSTS);
-
-    if (loading) return <p>Loading...</p>;
-    if (error) {
-      console.log("ERROR:", error);
-      return <p>There was an error fetching articles, please try again.</p>;
-    }
-
-    return data.posts.nodes.map(({ id, title, date }: {id:number, title:string, date:string}) => (
-      <div key={id}>
-        <p>
-           <a href="#">{date} - <strong>{title}</strong></a>
-        </p>
-      </div>
-    ));
-  }
-
-  const GET_POSTS = gql`
-    query GetPosts {
-      posts {
-        nodes {
-          id
-          title
-          date
-          content
-        }
-      }
-    }
-  `;
+  
 
   return (
     <div className={styles.container}>
@@ -48,11 +18,11 @@ export default function Home() {
       <main className={styles.main}>
 
         <h1 className={styles.title}>
-          Football Hub Front End POC
+          Football Hub Front End
         </h1>
 
         <p className={styles.description}>
-          The following blog articles are being pulled from the Wordpress CMS.
+          Latest APL Articles
         </p>
 
         <PostList />
