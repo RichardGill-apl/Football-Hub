@@ -1,5 +1,4 @@
 import path from 'path'
-import Link from 'next/link'
 import { client } from '../lib/graphql'
 import {
   useQuery,
@@ -36,9 +35,7 @@ export function PostList() {
 	  	<p>{new Date(date).toLocaleDateString()}</p>
 	  	<div dangerouslySetInnerHTML={{__html: excerpt}}></div>
 	    <p>
-	    	<Link href={`/articles/${slug}`}>
-	       		<a><i>Read more {'>'}</i></a>
-       		</Link>
+	       	<a href={`/articles/${slug}`}><i>Read more {'>'}</i></a>
 	    </p>
 	  </div>
 	));
@@ -66,10 +63,11 @@ export async function getPostData(slug:string) {
 		    title
 		    uri
 		    content
+		    excerpt
 		  }
 		}
-		`
-	});
+		`, 
+		fetchPolicy: 'no-cache'});
 
 	if (!data.post) {
 		return {
