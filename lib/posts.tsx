@@ -4,10 +4,12 @@ import {
   useQuery,
   gql
 } from "@apollo/client";
+import newsStyles from '../styles/News.module.css'
+import ArticlePlaceholder from '../components/Images'
 
 const GET_POSTS = gql`
 	query GetPosts {
-	  posts (first: 50) {
+	  posts (first: 3) {
 	    nodes {
 	      id
 	      slug
@@ -30,14 +32,18 @@ export function PostList() {
 	}
 
 	return data.posts.nodes.map(({ id, title, date, slug, excerpt }: {id:number, title:string, date:string, slug:string, excerpt:string}) => (
-	  <div key={id}>
-	  	<h3>{title}</h3>
-	  	<p>{new Date(date).toLocaleDateString()}</p>
+	  <article className={newsStyles.articleBox} key={id}>
+		<span>Comp Name</span>   
+		<ArticlePlaceholder />
+		<p className={newsStyles.articleDate}>{new Date(date).toLocaleDateString()}</p>
+	  	<div className={newsStyles.titleBox}>
+			<h3>{title}</h3>
+		</div>
 	  	<div dangerouslySetInnerHTML={{__html: excerpt}}></div>
 	    <p>
 	       	<a href={`/articles/${slug}`}><i>Read more {'>'}</i></a>
 	    </p>
-	  </div>
+	  </article>
 	));
 }
 
