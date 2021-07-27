@@ -2,7 +2,7 @@ import styles from '../styles/Home.module.css'
 import newsStyles from '../styles/News.module.css'
 import { PostList } from '../lib/posts'
 
-export default function Home() {
+export default function RelatedNews() {
   return (
     <section className={styles.container}>
       <main className={styles.main}>
@@ -10,7 +10,7 @@ export default function Home() {
           <h3 className={styles.description}>Related News</h3>
           <p>More News</p>
         </div>
-        <section className={newsStyles.articleBoxContainer}>
+        <section className={newsStyles.articleBoxContainer}>  
           <PostList />
         </section>
       </main>
