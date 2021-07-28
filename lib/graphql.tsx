@@ -6,7 +6,7 @@ import {
   gql
 } from "@apollo/client";
 
-const GRAPHQL_API_URL = 'https://apl-1.go-vip.net/graphql';
+const GRAPHQL_API_URL = 'https://wpvip1.prd.footballapl.com/graphql';   
 
 export const client = new ApolloClient({
   uri: GRAPHQL_API_URL,
