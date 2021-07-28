@@ -1,5 +1,4 @@
-import ssstyles from '../styles/Home.module.css'
-import styles from '..styles/layout.module.css'
+import styles from '../styles/layout.module.css'
 
 export default function Layout({ children } : {children:any}) {
   return <div className={styles.container}>{children}</div>

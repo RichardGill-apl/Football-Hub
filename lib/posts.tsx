@@ -5,7 +5,7 @@ import {
   gql
 } from "@apollo/client";
 import newsStyles from '../styles/News.module.css'
-import ArticlePlaceholder from '../components/Images'
+import ArticlePlaceholder from '../public/Images'
 
 const GET_POSTS = gql`
 	query GetPosts {
