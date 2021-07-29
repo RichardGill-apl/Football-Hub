@@ -5,7 +5,6 @@ import { PostList } from '../lib/posts'
 export default function RelatedNews() {
   return (
     <section className={styles.container}>
-      <main className={styles.main}>
         <div className={newsStyles.headingArea}>
           <h3 className={styles.description}>Related News</h3>
           <p>More News</p>
@@ -13,7 +12,6 @@ export default function RelatedNews() {
         <section className={newsStyles.articleBoxContainer}>  
           <PostList />
         </section>
-      </main>
     </section>
   )
 }
