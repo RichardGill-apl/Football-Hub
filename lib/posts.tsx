@@ -5,7 +5,8 @@ import {
   gql
 } from "@apollo/client";
 import newsStyles from '../styles/News.module.css'
-import ArticlePlaceholder from '../public/Images'
+import Image from 'next/image'
+import ArticlePlaceholder from '../public/football_placeholder2.jpg'
 
 const GET_POSTS = gql`
 	query GetPosts {
@@ -33,8 +34,8 @@ export function PostList() {
 
 	return data.posts.nodes.map(({ id, title, date, slug, excerpt }: {id:number, title:string, date:string, slug:string, excerpt:string}) => (
 	  <article className={newsStyles.articleBox} key={id}>
-		<span>Comp Name</span>   
-		<ArticlePlaceholder />
+		<span>Comp name</span>   
+		<Image src={ArticlePlaceholder} height={200} width={300} alt='Article Placeholder' />
 		<p className={newsStyles.articleDate}>{new Date(date).toLocaleDateString()}</p>
 	  	<div className={newsStyles.titleBox}>
 			<h3>{title}</h3>
